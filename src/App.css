@@ -1,0 +1,151 @@
+.login{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding: 3rem;
+    background-color: #89cadb;
+}
+.login form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    height: 10rem;
+    width: 20rem;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.login form input{
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    outline: none;
+    border: none;
+    background-color: rgb(220, 220, 220);
+}
+
+.login form button{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    transition: all 0.3s;
+    outline: none;
+    border: none;
+}
+
+
+
+.login form button{
+    text-decoration: none;
+    color: #3d8da3;
+}
+
+.login form button:hover{
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #236273;
+}
+
+.home{
+    background-color: #89cadb;
+    min-height: 100vh;
+    position: relative;
+}
+.buttons{
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding-top: 3rem;
+}
+.buttons button{
+    width: 10%;
+    height: 10%;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    transition: all 0.3s;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+.buttons button:hover{
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #236273;
+}
+
+#signOut{
+    background-color: red;
+    height: 5%;
+    width: 7%;
+    color: white;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 5px;
+    position: absolute;
+    top: 5%;
+    left: 2%;
+    transition: all 0.3s;
+}
+
+#signOut:hover{
+    background-color: #fff;
+    color: red;
+  
+}
+.userData{
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+}
+.userData th{
+    border: 1px solid black;
+    color: #555;
+    padding: 0.5rem;
+    text-align: left;
+    width: 20%;
+    font-weight: 700;
+    font-size: 1.3rem;
+    border-collapse: collapse;
+    border-spacing: 0;
+
+}
+.userData td{
+    border: 1px solid black;
+    color: #555;
+    padding: 0.5rem;
+    text-align: left;
+    width: 20%;
+    font-weight: 400;
+    font-size: 1rem;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+table{
+    background-color: #abdbe8;
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 90%;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    border: 1px solid black;
+    color: #555;
+    padding: 0.5rem;
+    text-align: left;
+
+}
+#email{
+    font-size: 1.5rem;
+    position: absolute;
+    right: 5%;
+    top: 3%;
+}
