@@ -5,6 +5,7 @@ import axios from 'axios'
 function User(user) {
     const [userData , setUserData] = useState([])
     const [currentUser , setCurrentUser] = useState("")
+    const API = "https://officebackend.onrender.com"
     
     useEffect(()=>{
         auth.onAuthStateChanged((user)=>{
@@ -12,7 +13,7 @@ function User(user) {
                 setCurrentUser(auth.currentUser) 
             }
         })
-        axios.get("http://localhost:8000/api/users").then((res)=>{
+        axios.get(API+"/api/users").then((res)=>{
             setUserData(res.data)
         }).catch((err) => {
             console.log(err)

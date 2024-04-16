@@ -8,6 +8,7 @@ function TaskList() {
     const [taskList , setTaskList] = useState([])
     const [userData , setUserData] = useState([])
     const Navigate = useNavigate()
+    const API = "https://officebackend.onrender.com"
     useEffect(()=>{
         auth.onAuthStateChanged((user)=>{
             if(user){
@@ -28,7 +29,7 @@ function TaskList() {
             }
         })
 
-        axios.get("http://localhost:8000/api/users").then((res)=>{
+        axios.get(API+"/api/users").then((res)=>{
             setUserData(res.data)
         }).catch((err) => {
             console.log(err)
