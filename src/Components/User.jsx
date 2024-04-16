@@ -20,7 +20,7 @@ function User(user) {
         }) 
     },[])
 
-
+        console.log(userData)
 
   return (
     <div className='userData'>

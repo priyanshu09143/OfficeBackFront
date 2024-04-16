@@ -50,10 +50,10 @@ function Tasks() {
                         for (let i in item.data) {
                             data.push(item.data[i])
                         }
+
                         let filterData = {
                             length: data.length,
                             id: item.id,
-                            status: data[0].status,
                         }
                         userData.map((user) => {
                             if (user.uid === item.id) {
@@ -61,15 +61,15 @@ function Tasks() {
                                 else filterData.email = user.email
                                 if (filterData.hasOwnProperty("createdAt")) return
                                 else filterData.createdAt = user.metadata.creationTime
+                                
                             }
                         })
                         return (
                             data.map((todo , index) => {
-                                    console.log(todo)
                                 return <tr key={index}>
                                     <td>{todo.title}</td>
                                     <td>{todo.discription}</td>
-                                    <td>{filterData.status}</td>
+                                    <td>{todo.status}</td>
                                     <td>{filterData.email}</td>
                                 </tr>
                             })

@@ -49,13 +49,16 @@ function TaskList() {
             {
                 taskList.map((item,index)=>{
                     let data = []
+                    let lists = []
                     for(let  i in item.data){
                         data.push(item.data[i])
+                        if(! lists.includes(item.data[i].status)) lists.push(item.data[i].status)
                     }
+
                     let filterData = {
                         length : data.length,
                         id : item.id,
-                        status : data[0].status,
+                        status : lists.join(" , "),
                     }
                     userData.map((user)=>{
                         if(user.uid === item.id){
