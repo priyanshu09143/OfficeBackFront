@@ -27,6 +27,9 @@ function Home() {
       if (user) {
         setCurrentUser(auth.currentUser)
       }
+      if(!user){
+        Navigate('/login')
+      }
     })
   })
 
