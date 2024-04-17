@@ -32,17 +32,9 @@ function Home() {
   useEffect(() => {
     if(localStorage.getItem("auth")){
       setCurrentUser({email : "admin@admin.com"})
-
     }
     if(!localStorage.getItem("auth")){
-      auth.onAuthStateChanged((user) => {
-        if (user) {
-          setCurrentUser(auth.currentUser)
-        }
-        if(!user){
           Navigate('/login')
-        }
-      })
     }
   },[])
 
