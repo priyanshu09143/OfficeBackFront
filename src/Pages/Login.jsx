@@ -36,16 +36,9 @@ function Login() {
       }
       
     }
-    // if (email !== Admin.email) {
-    //   signInWithEmailAndPassword(auth, email, password)
-    //     .then(() => {
-    //       toast.success("Login success")
-    //     })
-    //     .catch((error) => {
-    //       toast.error("Wrong Email or Password")
-    //       console.log(error)
-    //     })
-    // }
+    if (email !== Admin.email) {
+          toast.error("wrong admin Id or password")
+    }
   }
   return (
     <>
