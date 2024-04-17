@@ -28,7 +28,6 @@ function Home() {
     }
    
   }
-
   useEffect(() => {
     if(localStorage.getItem("auth")){
       setCurrentUser({email : "admin@admin.com"})

@@ -1,5 +1,5 @@
 import { onValue, ref } from 'firebase/database'
-import { auth, db } from '../Firebase'
+import { db } from '../Firebase'
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
@@ -22,34 +22,12 @@ function TaskList() {
                 })
                 setTaskList(data)
             })
+            axios.get(API+"/api/users").then((res)=>{
+                setUserData(res.data)
+            }).catch((err) => {
+                console.log(err)
+            }) 
         }
-        if(!localStorage.getItem("auth")){
-            auth.onAuthStateChanged((user)=>{
-                if(user){
-                    onValue(ref(db),snapshot => {
-                        const data= []
-                        snapshot.forEach((child)=>{
-                            let shot = child.val()
-                            data.push({
-                                id: child.key,
-                               data : shot
-                            })
-                        })
-                        setTaskList(data)
-                    })
-                }
-                else{
-                    Navigate('/login')
-                }
-            })
-        }
-        
-
-        axios.get(API+"/api/users").then((res)=>{
-            setUserData(res.data)
-        }).catch((err) => {
-            console.log(err)
-        }) 
     },[])
 
   return (
