@@ -12,26 +12,39 @@ function Home() {
   const [Shows, setShows] = useState("")
   const Navigate = useNavigate()
   const handleSignOut = () => {
-    signOut(auth).then(() => {
-      toast.success("SignOut SuccessFull")
+    if(localStorage.getItem("auth")){
       Navigate('/login')
-    })
-      .catch((e) => {
-        console.log(e)
-        toast.error("SignOut Failed")
+      localStorage.removeItem("auth")
+    }
+    if(!localStorage.getItem("auth")){
+      signOut(auth).then(() => {
+        toast.success("SignOut SuccessFull")
+        Navigate('/login')
       })
+        .catch((e) => {
+          console.log(e)
+          toast.error("SignOut Failed")
+        })
+    }
+   
   }
 
   useEffect(() => {
-    auth.onAuthStateChanged((user) => {
-      if (user) {
-        setCurrentUser(auth.currentUser)
-      }
-      if(!user){
-        Navigate('/login')
-      }
-    })
-  })
+    if(localStorage.getItem("auth")){
+      setCurrentUser({email : "admin@admin.com"})
+
+    }
+    if(!localStorage.getItem("auth")){
+      auth.onAuthStateChanged((user) => {
+        if (user) {
+          setCurrentUser(auth.currentUser)
+        }
+        if(!user){
+          Navigate('/login')
+        }
+      })
+    }
+  },[])
 
   function shows(state) {
     setShows(state)

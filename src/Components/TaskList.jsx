@@ -10,24 +10,40 @@ function TaskList() {
     const Navigate = useNavigate()
     const API = "https://officebackend.onrender.com"
     useEffect(()=>{
-        auth.onAuthStateChanged((user)=>{
-            if(user){
-                onValue(ref(db),snapshot => {
-                    const data= []
-                    snapshot.forEach((child)=>{
-                        let shot = child.val()
-                        data.push({
-                            id: child.key,
-                           data : shot
-                        })
+        if(localStorage.getItem("auth")){
+            onValue(ref(db),snapshot => {
+                const data= []
+                snapshot.forEach((child)=>{
+                    let shot = child.val()
+                    data.push({
+                        id: child.key,
+                       data : shot
                     })
-                    setTaskList(data)
                 })
-            }
-            else{
-                Navigate('/login')
-            }
-        })
+                setTaskList(data)
+            })
+        }
+        if(!localStorage.getItem("auth")){
+            auth.onAuthStateChanged((user)=>{
+                if(user){
+                    onValue(ref(db),snapshot => {
+                        const data= []
+                        snapshot.forEach((child)=>{
+                            let shot = child.val()
+                            data.push({
+                                id: child.key,
+                               data : shot
+                            })
+                        })
+                        setTaskList(data)
+                    })
+                }
+                else{
+                    Navigate('/login')
+                }
+            })
+        }
+        
 
         axios.get(API+"/api/users").then((res)=>{
             setUserData(res.data)
